@@ -1,7 +1,7 @@
 import { QueryInterface } from "sequelize";
 export default {
   async up(queryInterface: QueryInterface) {
-    queryInterface.sequelize.query(`
+    await queryInterface.sequelize.query(`
       CREATE TABLE IF NOT EXISTS hotels (
         id INT NOT NULL AUTO_INCREMENT,
         name VARCHAR(255) NOT NULL,
@@ -15,7 +15,7 @@ export default {
   },
 
   async down(queryInterface: QueryInterface) {
-    queryInterface.sequelize.query(`
+    await queryInterface.sequelize.query(`
       DROP TABLE IF EXISTS hotels;
       `);
   },
